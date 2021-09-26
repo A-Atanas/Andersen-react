@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { React, Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			data: [],
+		};
+	}
+
+	fetchData() {
+		fetch("https://api.punkapi.com/v2/beers")
+			.then((res) => res.json())
+			.then((data) => this.setState({data}));
+	}
+
+	render() {
+		return (
+			<div className="App">
+				<button
+					onClick={() => this.fetchData()}
+				>
+					Eeeeeeee
+				</button>
+				<div>
+					{this.state.data.map((beer) => (
+						<div>{beer.name}</div>
+					))}
+				</div>
+			</div>
+		);
+	}
 }
 
 export default App;
