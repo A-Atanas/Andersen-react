@@ -1,38 +1,41 @@
-.App {
-  text-align: center;
+img {
+	max-width: 25%;
+	max-height: 20%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.beers {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.beerContainer {
+	width: 40%;
+	padding: 2em;
+	margin: 1em auto;
+	display: flex;
+	justify-content: space-around;
+	border: 1px solid black;
+	border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.textInfo {
+	display: flex;
+	flex-direction: column;
+	text-align: justify;
+	width: 40%;
 }
 
-.App-link {
-  color: #61dafb;
+.textInfo p {
+	margin: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.beerNameAndTagline {
+  margin: 5px;
+}
+
+.textInfo h1 {
+	margin-bottom: 0;
 }
