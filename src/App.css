@@ -33,9 +33,31 @@ img {
 }
 
 .beerNameAndTagline {
-  margin: 5px;
+	margin: 5px;
 }
 
 .textInfo h1 {
 	margin-bottom: 0;
+}
+
+.signupBackground {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalWindow {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 50%;
+	background-color: white;
+	border-radius: 10px;
+	height: auto;
+	margin: 2em;
 }
