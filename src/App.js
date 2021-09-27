@@ -1,6 +1,7 @@
 import "./App.css";
 import { React, Component } from "react";
 import Beer from "./components/Beer";
+import SignupWindow from "./components/SignupWindow";
 
 export default class App extends Component {
 	constructor(props) {
@@ -8,6 +9,7 @@ export default class App extends Component {
 		this.state = {
 			data: [],
 			dataToShow: [],
+			isSigningUp: "hidden",
 			searchQuery: "",
 			sortValue: "none",
 		};
@@ -66,6 +68,14 @@ export default class App extends Component {
 				return beer.name.toLowerCase().includes(value.toLowerCase());
 			}),
 		});
+	}
+
+	showSignupWindow() {
+		this.setState({ isSigningUp: "visible" });
+	}
+
+	hideSignupWindow() {
+		this.setState({ isSigningUp: "hidden" });
 	}
 
 	render() {
@@ -133,12 +143,14 @@ export default class App extends Component {
 						value={this.state.searchQuery}
 						onChange={(e) => this.handleSearch(e)}
 					></input>
+					<button onClick={() => this.showSignupWindow()}>Sign up</button>
 				</div>
 				<div className="beers">
 					{this.state.dataToShow.map((beer) => (
 						<Beer key={beer.id} {...beer} />
 					))}
 				</div>
+				<SignupWindow visibility={this.state.isSigningUp} close={() => this.hideSignupWindow()}/>
 			</div>
 		);
 	}
